@@ -8,11 +8,19 @@ def export_block_geojsons(shape_dir, export_dir):
 
     for county_file in tqdm(shapes):
         gdf = gpd.read_file(county_file)
+<<<<<<< HEAD
         county = gdf['GEOID20'].str[:5].values[0]
         os.system('mkdir -p %s' % os.path.join(export_dir,county))
         for bg in tqdm(gdf['GEOID20'].str[:12]):
             pdf = gdf[gdf['GEOID20'].str[:12] == bg]
             pdf.to_file(os.path.join(os.path.join(export_dir,county), '%s.geojson' % bg))
+=======
+        state = gdf['GEOID20'].str[:2].values[0]
+        os.system('mkdir -p %s' % os.path.join(export_dir,state))
+        for bg in tqdm(gdf['GEOID20'].str[:12]):
+            pdf = gdf[gdf['GEOID20'].str[:12] == bg]
+            pdf.to_file(os.path.join(os.path.join(export_dir,state), '%s.geojson' % bg))
+>>>>>>> 7d6873149027833c961c23bc0bff05e8810fccb8
         
         # Small routine updates
         os.system("git add -A && git commit -m 'adding %s' && git pull && git push" % county_file.name)

@@ -10,17 +10,26 @@ def export_block_geojsons(shape_dir, export_dir):
     for county_file in pbar:
         gdf = gpd.read_file(county_file)
         county = gdf['GEOID20'].str[:5].values[0]
+
+        # Assuming if a directory is there, the directory is valid
+        if os.path.isdir(os.path.join(export_dir,county)):
+            continue
         os.system('mkdir -p %s' % os.path.join(export_dir,county))
 
         pbar.set_description('Updating county: %s' % county)
         updated = 0
         for bg in tqdm(gdf['GEOID20'].str[:12]):
-            export_filename = os.path.join(os.path.join(export_dir,county), '%s.geojson' % bg)
-            if os.path.isfile(export_filename):
-                continue
-            pdf = gdf[gdf['GEOID20'].str[:12] == bg]
-            pdf.to_file(export_filename)
-            updated += 1
+            try:
+                export_filename = os.path.join(os.path.join(export_dir,county), '%s.geojson' % bg)
+                if os.path.isfile(export_filename):
+                    continue
+                pdf = gdf[gdf['GEOID20'].str[:12] == bg]
+                pdf.to_file(export_filename)
+                updated += 1
+            except Exception as e:
+                # DANGEROUS
+                os.system('rm -rf %s' % os.path.join(export_dir,county))
+                raise
         # Small routine updates
         if updated > 0:
             os.system("git add -A && git commit -m 'adding %s' && git pull && git push" % county_file.name)

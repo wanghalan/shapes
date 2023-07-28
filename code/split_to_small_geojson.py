@@ -18,7 +18,7 @@ def export_block_geojsons(shape_dir, export_dir):
                 continue
             os.system('mkdir -p %s' % os.path.join(export_dir,county))
             updated = 0
-            for bg in tqdm(gdf['GEOID20'].str[:12]):
+            for bg in tqdm(gdf['GEOID20'].str[:12].unique()):
                 export_filename = os.path.join(os.path.join(export_dir,county), '%s.geojson' % bg)
                 if os.path.isfile(export_filename):
                     continue

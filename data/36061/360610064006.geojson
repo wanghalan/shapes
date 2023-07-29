@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4269" } },
+"features": [
+{ "type": "Feature", "properties": { "STATEFP20": "36", "COUNTYFP20": "061", "TRACTCE20": "006400", "BLOCKCE20": "6000", "GEOID20": "360610064006000", "NAME20": "Block 6000", "MTFCC20": "G5040", "UR20": null, "UACE20": null, "UATYPE20": null, "FUNCSTAT20": "S", "ALAND20": 20547, "AWATER20": 0, "INTPTLAT20": "+40.7376855", "INTPTLON20": "-073.9794520" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -73.980418, 40.73855 ], [ -73.978052, 40.737554 ], [ -73.978498, 40.736791 ], [ -73.980905, 40.737886 ], [ -73.980418, 40.73855 ] ] ] } }
+]
+}

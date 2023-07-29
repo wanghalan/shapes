@@ -8,7 +8,12 @@ def export_block_geojsons(shape_dir, export_dir):
     shapes = sorted(pathlib.Path(shape_dir).glob('*.zip'))
 
     pbar = tqdm(shapes)
+    state = '01'
     for county_file in pbar:
+        current_state = county_file.name[:2]
+        if current_state != state:
+            os.system("git add -A && git commit -m 'adding %s' && git pull && git push" % state)
+            state = current_state
         try:
             gdf = gpd.read_file(county_file)
             county = gdf['GEOID20'].str[:5].values[0]
@@ -32,7 +37,6 @@ def export_block_geojsons(shape_dir, export_dir):
             os.system('rm -rf %s' % os.path.join(export_dir,county))
             continue
 
-        os.system("git add -A && git commit -m 'adding %s' && git pull && git push" % county_file.name)
 
 if __name__=='__main__':
     shapefile_dir = '../../national_address_database/data/shapefiles'

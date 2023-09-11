@@ -1,9 +1,0 @@
-{
-"type": "FeatureCollection",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4269" } },
-"features": [
-{ "type": "Feature", "properties": { "STATEFP20": "36", "COUNTYFP20": "047", "TRACTCE20": "059300", "BLOCKCE20": "2000", "GEOID20": "360470593002000", "NAME20": "Block 2000", "MTFCC20": "G5040", "UR20": null, "UACE20": null, "UATYPE20": null, "FUNCSTAT20": "S", "ALAND20": 16558, "AWATER20": 0, "INTPTLAT20": "+40.7269504", "INTPTLON20": "-073.9404251" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -73.941043, 40.727841 ], [ -73.940115, 40.727929 ], [ -73.939805, 40.726062 ], [ -73.940738, 40.725973 ], [ -73.941043, 40.727841 ] ] ] } },
-{ "type": "Feature", "properties": { "STATEFP20": "36", "COUNTYFP20": "047", "TRACTCE20": "059300", "BLOCKCE20": "2001", "GEOID20": "360470593002001", "NAME20": "Block 2001", "MTFCC20": "G5040", "UR20": null, "UACE20": null, "UATYPE20": null, "FUNCSTAT20": "S", "ALAND20": 22308, "AWATER20": 0, "INTPTLAT20": "+40.7247598", "INTPTLON20": "-073.9400660" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -73.940738, 40.725973 ], [ -73.939805, 40.726062 ], [ -73.939397, 40.723544 ], [ -73.940323, 40.723454 ], [ -73.940738, 40.725973 ] ] ] } },
-{ "type": "Feature", "properties": { "STATEFP20": "36", "COUNTYFP20": "047", "TRACTCE20": "059300", "BLOCKCE20": "2002", "GEOID20": "360470593002002", "NAME20": "Block 2002", "MTFCC20": "G5040", "UR20": null, "UACE20": null, "UATYPE20": null, "FUNCSTAT20": "S", "ALAND20": 3965, "AWATER20": 0, "INTPTLAT20": "+40.7233100", "INTPTLON20": "-073.9398037" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -73.940323, 40.723454 ], [ -73.939397, 40.723544 ], [ -73.938912, 40.723579 ], [ -73.939311, 40.723348 ], [ -73.940221, 40.722892 ], [ -73.940323, 40.723454 ] ] ] } }
-]
-}

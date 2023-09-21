@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <!-- https://stackoverflow.com/questions/14341156/calculating-page-load-time-in-javascript -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script>
+        async function fetchTest(url){
+            var start = window.performance.now();
+            var list = [];
+            const jsonResponse = await d3.json(url);
+            var end = window.performance.now();
+            let responseTime = end - start;
+            return responseTime
+        }
+
+        var repeater = setInterval(function () {
+            if (callCount < 10) {
+                fetchTest('https://raw.githubusercontent.com/wanghalan/shapes/main/data/testing/va_combined.topojson')
+                callCount += 1;
+            } else {
+                clearInterval(repeater);
+            }
+        }, 1000);
+
+        var repeater2 = setInterval(function () {
+            if (callCount < 10) {
+                fetchTest('https://raw.githubusercontent.com/wanghalan/shapes/main/data/testing/51.papojson')
+                callCount += 1;
+            } else {
+                clearInterval(repeater2);
+            }
+        }, 1000);
+
+        var repeater3 = setInterval(function () {
+            if (callCount < 10) {
+                fetchTest('https://raw.githubusercontent.com/wanghalan/shapes/main/data/testing/51015070500.papojson')
+                callCount += 1;
+            } else {
+                clearInterval(repeater3);
+            }
+        }, 1000);
+
+        Promise.all([large, medium, small]).then((values) => {
+            console.log(values);
+        });
+    </script>
+</body>
+</html>
